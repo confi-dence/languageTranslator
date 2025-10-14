@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#main>div:nth-child(1){
+    /* background: #000; */
+}
+body{
+    background: #1f1c1c49;
+}
+#main{
+    width: 90%;
+    max-width: 560px;
+    align-self: center;
+}
+#arrowParent{
+    border: 4px solid white;
+    height: 70%;
+}
+#content-container{
+    height: 94%;
+    width: 85%;
+}
+fieldset{
+    border: 2.5px solid #064E3B;
+}
+.fieldset{
+    display: none;
+}
+textarea{
+    outline: none;
+}
