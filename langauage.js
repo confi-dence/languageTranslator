@@ -44,3 +44,5 @@ function changeNameFrom(newname) {
 function changeNameTo(newname) {
     opento.innerText = newname
 }
+
+const
