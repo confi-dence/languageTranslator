@@ -31,7 +31,9 @@
                             <div class="h-8 w-8" id="sourceLang">
                                 <div class="text-white" onclick="changeNameFrom('english')">english</div>
                                 <div class="text-white" onclick="changeNameFrom('french')">french</div>
-                                <!-- <div class="text-white" onclick="changeNameFrom('chinese')">chinese</div> -->
+                                <div class="text-white" onclick="changeNameFrom('chinese')">chinese</div>
+                                <div class="text-white" onclick="changeNameFrom('spanish')">spanish</div>
+                                <div class="text-white" onclick="changeNameFrom('german')">german</div>
                             </div>
                         </div>
                 </div>
@@ -42,9 +44,11 @@
                         <div class="text-white" id="opento">to</div>
                         <div class="mt-16 w-8 h-8 hidden cursor-pointer  absolute" id="closeTo">
                             <div class="h-8 w-8" id="TargetLang">
-                                <div class="text-white"z onclick="changeNameTo('english')">english</div>
+                                <div class="text-white" onclick="changeNameTo('english')">english</div>
                                 <div class="text-white" onclick="changeNameTo('french')">french</div>
-                                <!-- <div class="text-white" onclick="changeNameFrom('chinese')">chinese</div> -->
+                                <div class="text-white" onclick="changeNameTo('chinese')">chinese</div>
+                                <div class="text-white" onclick="changeNameTo('spanish')">spanish</div>
+                                <div class="text-white" onclick="changeNameTo('german')">german</div>
                             </div>
                         </div>
                     </div>
@@ -60,11 +64,17 @@
                 </fieldset>
              </div>
              <!-- Google image -->
-             <div  class="flex-[0.33] bg-green-800"></div>
+             <div  class="flex-[0.33] text-white  flex-col flex justify-around items-center">
+                <div class="text-xl">OR</div>
+                <div>
+                    <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-16 w-16" id="confy-image"></div>
+                </div>
+                <div>Say Something</div>
+             </div>
              <!--  button & text chang -->
-             <div  class="flex-[0.33]">
+             <div  class="flex-[0.33] bg-green-900">
                 <button id="triggerButton">hfhf</button>
-                <div id="OutputedText"></div>
+                <div id="OutputedText">Translated text</div>
              </div>
            </div>
         </div>
