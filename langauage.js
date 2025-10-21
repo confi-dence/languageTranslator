@@ -11,6 +11,7 @@ inputedText = document.getElementById('inputedText'),
 OutputedText = document.getElementById('OutputedText'),
 triggerButton = document.getElementById('triggerButton')
 
+const apiUrl = "https://libretranslate.de/translate";
 
 openFrom.addEventListener('click', function () {
     closeFrom.style.display = 'flex';
@@ -69,7 +70,6 @@ format: 'text'
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      "Authorization": `Bearer ${apiKey}`, 
     },
     body: JSON.stringify(usermessage)
   }
