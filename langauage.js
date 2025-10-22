@@ -68,10 +68,13 @@ function getLangCode(lang) {
 triggerButton.addEventListener('click', function () {
   const text = inputedText.value.trim()
   if(!text){
-    OutputedText.innerText = "";
+    OutputedText.innerText = "please type or say something...";
+    setTimeout(() => {
+      OutputedText.innerText = "";
+    }, 1500);
     return
   }else{
-    OutputedText.innerText = 'Translating......'
+    OutputedText.innerText = 'Translating...'
   }
   const usermessage = {
     q: text,
@@ -102,6 +105,6 @@ return response.json()
     OutputedText.innerText = data.responseData.translatedText || 'Translation failed'
   }).catch(error => {
     console.error('error', error);
-    OutputedText.innerText = 'An error occurred';
+    OutputedText.innerText = 'your network is weak';
   })
 })  

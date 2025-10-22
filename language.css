@@ -4,9 +4,7 @@
   box-sizing: border-box;
 }
 
-#main>div:nth-child(1){
-  /* background: #000; */
-}
+
 body{
   background: #1f1c1c49;
 }
@@ -20,6 +18,9 @@ body{
   height: 70%;
   border-radius: 6px;
 }
+#triggerButton{
+  border-radius: 6px;
+}
 #content-container{
   height: 94%;
   width: 85%;
@@ -28,9 +29,51 @@ fieldset{
   border: 2.5px solid #064E3B;
   border-radius: 8px;
 }
-.fieldset{
+/* .fieldset{
   display: none;
-}
+  width: 80%;
+  max-width: 560px;
+} */
 textarea{
   outline: none;
+}
+@media screen and (max-width: 550px) {
+  textarea{
+    width: 35ch;
+  }
+}
+@media screen and (max-width: 400px) {
+  #main{
+    width: 96%;
+  }
+  textarea{
+    width: 33ch;
+    height: 4.8em;
+  }
+  .OrTrans,#triggerButton,#OutputedText{
+    font-size: 16px;
+    
+  }
+  #openFrom,#closeFrom,#opento,#closeTo,fieldset, .saySomething{
+    font-size: 15px;
+  }
+  #confy-image{
+    height: 25px;
+    width: 25px;
+  }
+  #speaker{
+    height: 50px;
+    width: 50px;
+  }
+  #arrowParent{
+    border: 3px solid white;
+  }
+}
+@media screen and (max-width: 350px) {
+
+  textarea{
+    width: 30ch;
+  }
+
+
 }

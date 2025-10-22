@@ -13,7 +13,7 @@
     <div class="flex bg-black  w-full h-screen overflow-hidden flex-col bg-opacity-80 " id="main">
         <!-- title -->
         <div class="flex-[0.12] flex justify-center ">
-            <div class="flex-[0.95] flex bg-green-900 items-end  pb-2.5 pl-6 text-white text-xl"> Translator APP</div>
+            <div class="flex-[0.95] flex bg-green-900 items-end  pb-2.5 pl-6 text-white text-xl OrTrans"> Translator APP</div>
         </div>
         <!-- sub main -->
         <div class="flex-[0.88] flex justify-center items-center">
@@ -21,7 +21,7 @@
              <!-- to and from-->
              <div class="flex-[0.2]  flex flex-col ">
                 <div class="flex-[0.5] flex justify-center items-center">
-                    <h5 class="text-xl text-yellow-500">Language Translator</h5>
+                    <h5 class="text-xl text-yellow-500 OrTrans">Language Translator</h5>
                 </div>
                 <div class="flex justify-center items-center flex-row flex-[0.5]">
                     <div class="flex-[0.25] flex justify-center items-center">
@@ -59,22 +59,22 @@
              <div  class="flex-[0.33]" >
                 <fieldset id="usertype">
                     <legend class="text-white pl-2">Source text</legend>
-                <textarea name="source text" id="inputedText"  rows="5" cols="53" class="bg-transparent pl-2.5 text-white 
+                <textarea name="source text" id="inputedText"  rows="4" cols="53" class="bg-transparent pl-2.5 text-white 
                 resize-none" ></textarea>
                 </fieldset>
              </div>
              <!-- Google image -->
              <div  class="flex-[0.33] text-white  flex-col flex justify-around items-center">
-                <div class="text-xl">OR</div>
+                <div class="text-xl OrTrans">OR</div>
                 <div>
-                    <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-16 w-16" id="confy-image"></div>
+                    <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-16 w-16" id="speaker"></div>
                 </div>
-                <div>Say Something</div>
+                <div class="saySomething">Say Something</div> 
              </div>
              <!--  button & text chang -->
-             <div  class="flex-[0.33] bg-green-900">
-                <button id="triggerButton">hfhf</button>
-                <div id="OutputedText">Translated text</div>
+             <div  class="flex-[0.33] flex justify-around text-xl  flex-col">
+                <button id="triggerButton" class=" flex-[0.25] text-white bg-green-900">Translate</button>
+                <div id="OutputedText" class=" flex-[0.5] text-yellow-500 flex justify-center">Translated text</div>
              </div>
            </div>
         </div>
