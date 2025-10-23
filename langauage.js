@@ -9,6 +9,7 @@ sourceLang = document.getElementById('sourceLang'),
 TargetLang = document.getElementById('TargetLang'),
 inputedText = document.getElementById('inputedText'),
 OutputedText = document.getElementById('OutputedText'),
+Soundspeaker = document.getElementById('Soundspeaker'),
 triggerButton = document.getElementById('triggerButton')
 
 
@@ -64,6 +65,7 @@ function getLangCode(lang) {
   return map[lang.toLowerCase()] || 'en'; // default to English
 }
 
+let lastTranslation = ""
 
 triggerButton.addEventListener('click', function () {
   const text = inputedText.value.trim()
@@ -102,9 +104,30 @@ if (!response.ok) {
 return response.json()
     }
   ).then(data => {
-    OutputedText.innerText = data.responseData.translatedText || 'Translation failed'
+    const translated = data.responseData.translatedText || "Translation failed";
+    OutputedText.innerText = translated;
+    lastTranslation = translated; // store it for the sound button
   }).catch(error => {
     console.error('error', error);
     OutputedText.innerText = 'your network is weak';
   })
 })  
+function speakText(text, lang = 'en') {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  speechSynthesis.speak(utterance);
+}
+
+Soundspeaker.addEventListener('click', function () {
+  if (lastTranslation) {
+    const targetLang = getLangCode(opento.innerText);
+    speakText(lastTranslation, targetLang);
+  } else {
+    OutputedText.innerText = "translate First";
+    setTimeout(() => {
+      OutputedText.innerText = "";
+    }, 1500);
+  }
+});
+
+// Example usage after translation:
