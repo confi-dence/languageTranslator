@@ -22,7 +22,7 @@ body{
   border-radius: 6px;
 }
 #content-container{
-  height: 94%;
+  height: 98%;
   width: 85%;
 }
 fieldset{
@@ -36,6 +36,21 @@ fieldset{
 } */
 textarea{
   outline: none;
+}
+#OutputedText{
+  height: 19vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#SoundParent:hover{
+  background-color: #424443;
+  height: 27px;
+  border-radius: 50%;
+}
+
+
+#OutputedText {
+  scrollbar-color:   #4f5553 #2e2e30;
 }
 @media screen and (max-width: 550px) {
   textarea{

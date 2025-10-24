@@ -7,6 +7,7 @@ langauage = document.querySelectorAll('langauage'),
 
 sourceLang = document.getElementById('sourceLang'),
 TargetLang = document.getElementById('TargetLang'),
+speaker = document.getElementById('speaker'),
 inputedText = document.getElementById('inputedText'),
 OutputedText = document.getElementById('OutputedText'),
 Soundspeaker = document.getElementById('Soundspeaker'),
@@ -112,6 +113,7 @@ return response.json()
     OutputedText.innerText = 'your network is weak';
   })
 })  
+
 function speakText(text, lang = 'en') {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
@@ -127,7 +129,30 @@ Soundspeaker.addEventListener('click', function () {
     setTimeout(() => {
       OutputedText.innerText = "";
     }, 1500);
-  }
+  } 
 });
 
-// Example usage after translation:
+// 🎤 SIMPLE SPEECH TO TEXT
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+
+recognition.interimResults = true; // type while speaking
+
+speaker.addEventListener('click', () => {
+  recognition.lang = getLangCode(openFrom.innerText) + '-' + getLangCode(openFrom.innerText).toUpperCase();
+  recognition.start();
+});
+
+// As the person speaks, text appears in the textarea
+recognition.onresult = (event) => {
+  let transcript = '';
+  for (let i = 0; i < event.results.length; i++) {
+    transcript += event.results[i][0].transcript;
+  }
+  inputedText.value = transcript;
+};
+
+// Optional: handle errors quietly
+recognition.onerror = (event) => {
+  console.error("Speech recognition error:", event.error);
+};

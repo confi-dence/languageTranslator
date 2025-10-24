@@ -56,7 +56,7 @@
              </div>
              <!-- text area -->
              <!-- type what they want ot ingterpret -->
-             <div  class="flex-[0.33]" >
+             <div  class="flex-[0.3]" >
                 <fieldset id="usertype">
                     <legend class="text-white pl-2">Source text</legend>
                 <textarea name="source text" id="inputedText"  rows="4" cols="53" class="bg-transparent pl-2.5 text-white 
@@ -64,20 +64,20 @@
                 </fieldset>
              </div>
              <!-- Google image -->
-             <div  class="flex-[0.33] text-white  flex-col flex justify-around items-center">
+             <div  class="flex-[0.3] text-white  flex-col flex justify-around items-center">
                 <div class="text-xl OrTrans">OR</div>
                 <div>
-                    <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-16 w-16" id="speaker"></div>
+                    <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-14 w-14" id="speaker"></div>
                 </div>
                 <div class="saySomething">Say Something</div> 
              </div>
              <!--  button & text chang -->
-             <div  class="flex-[0.33] flex justify-around text-xl  flex-col">
-                <button id="triggerButton" class=" flex-[0.25] text-white bg-green-900">Translate</button>
+             <div  class="flex-[0.41] flex justify-around text-xl  flex-col">
+                <button id="triggerButton" class=" flex-[0.27] text-white bg-green-900">Translate</button>
               <div class="flex-[0.6] flex justify-center">
-                <div id="OutputedText" class=" flex-[0.995] text-yellow-500 flex justify-center">Translated text</div>
-                <div class="flex-[0.005] justify-items-end">
-                <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover flex justify-items-end  cursor-pointer bg-center h-5 w-5 mt-1" id="Soundspeaker" "></div>
+                <div id="OutputedText" class=" flex-[0.995] flex flex-col  text-yellow-500 items-center">Translated text</div>
+                <div class="flex-[0.005] justify-items-end" id="SoundParent">
+                <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover flex justify-items-end  cursor-pointer bg-center h-5 w-5 mt-1" id="Soundspeaker" ></div>
 
                 </div>
               </div>
