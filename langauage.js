@@ -141,15 +141,12 @@ recognition.interimResults = true; // type while speaking
 speaker.addEventListener('click', () => {
   recognition.lang = getLangCode(openFrom.innerText) + '-' + getLangCode(openFrom.innerText).toUpperCase();
   recognition.start();
-  inputedText.value = "listening....";
-  setTimeout(() => {
-  inputedText.value = "";
-  }, 2000);
+  // inputedText.value = "listening....";
 });
 
 // As the person speaks, text appears in the textarea
 recognition.onresult = (event) => {
-  let transcript = '';
+  // let transcript = '';
   for (let i = 0; i < event.results.length; i++) {
     transcript += event.results[i][0].transcript;
   }
