@@ -42,9 +42,20 @@ textarea{
   overflow-y: auto;
   overflow-x: hidden;
 }
-#SoundParent:hover{
-  background-color: #424443;
-  height: 27px;
+#Soundspeaker:hover{
+  background-color: #313233;
+  box-shadow:  0 0  10px #313233,
+  0 0 20px #313233,
+  0 0 40px #313233,
+  0 0 80px #313233;
+  border-radius: 50%;
+}
+#speaker:hover{
+  background-color: #313233;
+  box-shadow:  0 0  10px #313233,
+  0 0 20px #313233,
+  0 0 40px #313233,
+  0 0 80px #313233;
   border-radius: 50%;
 }
 
