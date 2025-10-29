@@ -98,10 +98,8 @@ function getLangCode(lang) {
 let lastTranslation = ""
 
 inputedText.addEventListener('click', function () {
-  let = TypingTimeOut;
-  clearTimeout(TypingTimeOut);
-  
-  TypingTimeOut = setTimeout(() => {
+ 
+
     const text = inputedText.value.trim()
     //  show that staement if nothing is type or said and remove afte 1500 seconds
   if(!text){
@@ -147,7 +145,7 @@ return response.json()
     console.error('error', error);
     OutputedText.innerText = 'your network is weak';
   })
-  }, 700);
+
 })  
 
 function speakText(text, lang = 'en') {
