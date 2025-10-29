@@ -11,7 +11,9 @@ speaker = document.getElementById('speaker'),
 inputedText = document.getElementById('inputedText'),
 OutputedText = document.getElementById('OutputedText'),
 Soundspeaker = document.getElementById('Soundspeaker'),
-triggerButton = document.getElementById('triggerButton')
+triggerButton = document.getElementById('triggerButton'),
+clickFrom = TargetLang.querySelectorAll('div'),
+clickTo = sourceLang.querySelectorAll('div')
 
 
 const apiUrl = "https://api.mymemory.translated.net/get";
@@ -47,12 +49,39 @@ openFrom.addEventListener('click', function () {
     }else {
       usertype.style.display = 'none';
     }
-  }   usertype.styl
+  } 
+  // to chnage from into whatec=ver the user typed
+
 function changeNameFrom(newname) {
     openFrom.innerText = newname
+    DontAppearInTo(newname)
 }
+  // to chnage from into whatec=ver the user typed
+
 function changeNameTo(newname) {
     opento.innerText = newname
+    DontAppearInFrom(newname)
+}
+// what ever the user clicked show be hiddn in to
+function DontAppearInTo(selectedLang) {
+  clickFrom.forEach(div =>{
+    div.style.display = 'block'
+    if (div.innerText.toLowerCase() === selectedLang.toLowerCase()) {
+      div.style.display = 'none'
+      
+    }
+  })
+}
+// what ever the user clicked show be hiddn in from
+
+function DontAppearInFrom(selectedLang) {
+  clickTo.forEach(div =>{
+    div.style.display = 'block'
+    if (div.innerText.toLowerCase() === selectedLang.toLowerCase()) {
+      div.style.display = 'none'
+      
+    }
+  })
 }
 
 function getLangCode(lang) {
@@ -68,8 +97,13 @@ function getLangCode(lang) {
 
 let lastTranslation = ""
 
-triggerButton.addEventListener('click', function () {
-  const text = inputedText.value.trim()
+inputedText.addEventListener('click', function () {
+  let = TypingTimeOut;
+  clearTimeout(TypingTimeOut);
+  
+  TypingTimeOut = setTimeout(() => {
+    const text = inputedText.value.trim()
+    //  show that staement if nothing is type or said and remove afte 1500 seconds
   if(!text){
     OutputedText.innerText = "please type or say something...";
     setTimeout(() => {
@@ -79,6 +113,7 @@ triggerButton.addEventListener('click', function () {
   }else{
     OutputedText.innerText = 'Translating...'
   }
+  // to get the english, french
   const usermessage = {
     q: text,
     source: getLangCode(openFrom.innerText),
@@ -112,6 +147,7 @@ return response.json()
     console.error('error', error);
     OutputedText.innerText = 'your network is weak';
   })
+  }, 700);
 })  
 
 function speakText(text, lang = 'en') {
@@ -132,7 +168,6 @@ Soundspeaker.addEventListener('click', function () {
   } 
 });
 
-// 🎤 SIMPLE SPEECH TO TEXT
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
@@ -143,7 +178,7 @@ speaker.addEventListener('click', () => {
   recognition.start();
   // inputedText.value = "listening....";
 });
-
+ 
 // As the person speaks, text appears in the textarea
 recognition.onresult = (event) => {
   let transcript = '';
@@ -153,7 +188,3 @@ recognition.onresult = (event) => {
   inputedText.value = transcript;
 };
 
-// Optional: handle errors quietly
-recognition.onerror = (event) => {
-  console.error("Speech recognition error:", event.error);
-};

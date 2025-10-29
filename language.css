@@ -29,6 +29,15 @@ fieldset{
   border: 2.5px solid #064E3B;
   border-radius: 8px;
 }
+#interpretaionbor{
+  border: 2.5px solid #F59E0B;
+  border-radius: 6px;
+}
+#SoundParent>div{
+  position: relative;
+  margin-bottom: 5px;
+  left: -5px;
+}
 /* .fieldset{
   display: none;
   width: 80%;
@@ -43,19 +52,17 @@ textarea{
   overflow-x: hidden;
 }
 #Soundspeaker:hover{
-  background-color: #313233;
-  box-shadow:  0 0  10px #313233,
-  0 0 20px #313233,
-  0 0 40px #313233,
-  0 0 80px #313233;
+  background-color: #5e5e5e8a;
+  box-shadow: 0 0  10px #5e5e5e8a,
+  0 0 20px #5e5e5e8a,
+  0 0 40px #5e5e5e8a;
   border-radius: 50%;
 }
 #speaker:hover{
-  background-color: #313233;
-  box-shadow:  0 0  10px #313233,
-  0 0 20px #313233,
-  0 0 40px #313233,
-  0 0 80px #313233;
+  background-color: #5e5e5e8a;
+  box-shadow: 0 0  10px #5e5e5e8a,
+  0 0 20px #5e5e5e8a,
+  0 0 40px #5e5e5e8a;
   border-radius: 50%;
 }
 
