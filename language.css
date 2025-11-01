@@ -33,11 +33,14 @@ fieldset{
   border: 2.5px solid #F59E0B;
   border-radius: 6px;
 }
-#SoundParent>div{
+#SoundParent>div,#SpeakInput{
   position: relative;
   margin-bottom: 5px;
   left: -5px;
 }
+/* #SpeakInput{
+  align-self: flex-end;
+} */
 /* .fieldset{
   display: none;
   width: 80%;
@@ -70,10 +73,12 @@ textarea{
 #OutputedText {
   scrollbar-color:   #4f5553 #2e2e30;
 }
+
 @media screen and (max-width: 550px) {
   textarea{
     width: 35ch;
   }
+
 }
 @media screen and (max-width: 400px) {
   #main{
@@ -82,6 +87,9 @@ textarea{
   textarea{
     width: 33ch;
     height: 4.8em;
+  }
+  #interpretaionbor{
+    height: 5em;
   }
   .OrTrans,#triggerButton,#OutputedText{
     font-size: 16px;

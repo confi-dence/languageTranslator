@@ -37,6 +37,7 @@
                             </div>
                         </div>
                 </div>
+
                     <div class="flex-[0.08]  flex justify-center items-center " id="arrowParent">
                         <div class="bg-[url('./img/icons8-arrow-24.png')] bg-cover bg-center h-8 w-8" id="confy-image"></div>
                     </div>
@@ -57,18 +58,22 @@
              <!-- text area -->
              <!-- type what they want ot ingterpret -->
              <div  class="flex-[0.3]" >
-                <fieldset id="usertype">
+                <fieldset id="usertype" class="flex">
                     <legend class="text-white pl-2">Source text</legend>
                 <textarea name="source text" id="inputedText"  rows="4" cols="53" class="bg-transparent pl-2.5 text-white 
                 resize-none" ></textarea>
+                <div class="flex justify-center items-end">
+                <div class="bg-[url('./img/speaker.png')]  bg-cover flex  cursor-pointer bg-center h-6 w-6 mt-1" id="SpeakInput"></div>
+                </div>
                 </fieldset>
              </div>
                <!--  button & text chang -->
-               <div  class="flex-[0.3] flex justify-around text-xl  flex-col" >
+               <div  class="flex-[0.3] flex justify-around  flex-col" >
                 <div class="flex-[0.6] flex justify-center" id="interpretaionbor">
                   <div id="OutputedText" class=" flex-[0.995] flex flex-col  pl-6 text-yellow-500">Translated text will show here</div>
                   <div class="flex-[0.005] flex items-end" id="SoundParent">
-                  <div class="bg-[url('./img/speaker.png')]  bg-cover flex justify-items-end cursor-pointer bg-center h-6 w-6 mt-1" id="Soundspeaker"></div>
+                  <div class="bg-[url('./img/speaker.png')]  bg-cover flex justify-items-end cursor-pointer bg-center h-6 w-6 mt-1" id="Soundspeaker" ></div>
+                  <!-- <img src="./img/speaker.png"  id="Soundspeaker" alt=""> -->
                   </div>
                 </div>
   
@@ -77,7 +82,7 @@
              <div  class="flex-[0.41] text-white  flex-col flex justify-around items-center">
                 <div class="text-xl OrTrans">OR</div>
                 <div>
-                    <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-16 w-16" id="speaker"></div>
+                    <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-16 w-16" id="phoneSpeaker"></div>
                 </div>
                 <div class="saySomething">Say Something</div> 
              </div>
