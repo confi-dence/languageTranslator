@@ -106,7 +106,6 @@ textarea {
 @media screen and (max-width: 400px) {
   textarea{
     width: 32ch;
-    height: 5em;
   }
   #interpretaionbor{
     /* background: #000; */
