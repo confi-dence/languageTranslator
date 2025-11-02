@@ -15,7 +15,8 @@ SpeakOutput = document.getElementById('Soundspeaker'),
 SpeakInput = document.getElementById('SpeakInput'),
 triggerButton = document.getElementById('triggerButton'),
 clickFrom = TargetLang.querySelectorAll('div'),
-clickTo = sourceLang.querySelectorAll('div')
+clickTo = sourceLang.querySelectorAll('div'),
+copybtn = document.getElementById('copybtn')
 
 
 const apiUrl = "https://api.mymemory.translated.net/get";
@@ -152,7 +153,7 @@ return response.json()
   console.error('error', error);
   OutputedText.innerText = 'your network is weak';
 })
-}, 700);
+}, 1000);
 })  
 
 
@@ -217,4 +218,9 @@ recognition.onresult = (event) => {
   inputedText.value = transcript;
 };
 
+// copybtn
 
+
+copybtn.addEventListener('click', function (params) {
+  navigator.clipboard.writeText(OutputedText.innerText)
+})

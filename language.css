@@ -36,7 +36,11 @@ fieldset{
 #SoundParent>div,#SpeakInput{
   position: relative;
   margin-bottom: 5px;
-  left: -5px;
+  left: -4px;
+}
+#copybtn{
+  position: relative;
+  margin-bottom: 5px;
 }
 /* #SpeakInput{
   align-self: flex-end;
@@ -50,18 +54,25 @@ textarea{
   outline: none;
 }
 #OutputedText{
-  height: 19vh;
+  height: 17.5vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
-#Soundspeaker:hover{
+#phoneSpeaker:hover{
   background-color: #5e5e5e8a;
   box-shadow: 0 0  10px #5e5e5e8a,
   0 0 20px #5e5e5e8a,
   0 0 40px #5e5e5e8a;
   border-radius: 50%;
 }
-#speaker:hover{
+#SpeakInput:hover{
+  background-color: #5e5e5e8a;
+  box-shadow: 0 0  10px #5e5e5e8a,
+  0 0 20px #5e5e5e8a,
+  0 0 40px #5e5e5e8a;
+  border-radius: 50%;
+}
+#Soundspeaker:hover{
   background-color: #5e5e5e8a;
   box-shadow: 0 0  10px #5e5e5e8a,
   0 0 20px #5e5e5e8a,
@@ -71,9 +82,21 @@ textarea{
 
 
 #OutputedText {
-  scrollbar-color:   #4f5553 #2e2e30;
+  scrollbar-color:      #4f5553 #2e2e302d;
+}
+textarea {
+  scrollbar-color:      #4f5553 #2e2e302d;
 }
 
+
+@media screen and (max-width: 800px) {
+  textarea{
+    width: 35ch;
+    /* height: 4.8em; */
+    /* border: 2px dashed palegoldenrod; */
+  }
+
+}
 @media screen and (max-width: 550px) {
   textarea{
     width: 35ch;
@@ -81,16 +104,25 @@ textarea{
 
 }
 @media screen and (max-width: 400px) {
-  #main{
-    width: 96%;
-  }
   textarea{
-    width: 33ch;
-    height: 4.8em;
-  }
-  #interpretaionbor{
+    width: 32ch;
     height: 5em;
   }
+  #interpretaionbor{
+    /* background: #000; */
+    /* height: 5em; */
+  }
+  #OutputedText{
+    /* height: 4.94em; */
+  }
+  #content-container{
+    width: 90%;
+  }
+    textarea{
+    height: 5.2em;
+    /* border: 2px dashed palegoldenrod; */
+  }
+
   .OrTrans,#triggerButton,#OutputedText{
     font-size: 16px;
     
@@ -108,6 +140,10 @@ textarea{
   }
   #arrowParent{
     border: 3px solid white;
+  }
+  #main{
+    width: 100%;
+    
   }
 }
 @media screen and (max-width: 350px) {

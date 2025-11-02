@@ -10,6 +10,7 @@
 </head>
 <body class="box-border  flex w-full h-screen justify-center  items-center p-0 m-0 italic font-medium">
 <!-- main -->
+<!-- #F59E0B -->
     <div class="flex bg-black  w-full h-screen overflow-hidden flex-col bg-opacity-80 " id="main">
         <!-- title -->
         <div class="flex-[0.12] flex justify-center ">
@@ -17,9 +18,9 @@
         </div>
         <!-- sub main -->
         <div class="flex-[0.88] flex justify-center items-center">
-           <div class="content  flex flex-col w-96"  id="content-container">
+           <div class="content flex flex-col w-96"  id="content-container">
              <!-- to and from-->
-             <div class="flex-[0.2]  flex flex-col ">
+             <div class="flex-[0.2]  flex flex-col">
                 <div class="flex-[0.5] flex justify-center items-center">
                     <h5 class="text-xl text-yellow-500 OrTrans">Language Translator</h5>
                 </div>
@@ -58,21 +59,22 @@
              <!-- text area -->
              <!-- type what they want ot ingterpret -->
              <div  class="flex-[0.3]" >
-                <fieldset id="usertype" class="flex">
+                <fieldset id="usertype" class="flex justify-between">
                     <legend class="text-white pl-2">Source text</legend>
-                <textarea name="source text" id="inputedText"  rows="4" cols="53" class="bg-transparent pl-2.5 text-white 
+                <textarea name="source text" id="inputedText"  rows="4" cols="53" class="bg-transparent flex-[0.98] pl-2.5 text-white 
                 resize-none" ></textarea>
-                <div class="flex justify-center items-end">
-                <div class="bg-[url('./img/speaker.png')]  bg-cover flex  cursor-pointer bg-center h-6 w-6 mt-1" id="SpeakInput"></div>
+                <div class="flex  flex-[0.005] justify-center items-end">
+                <div class="bg-[url('./img/speaker.png')]  bg-cover flex  cursor-pointer bg-center h-5 w-5 mt-1" id="SpeakInput"></div>
                 </div>
                 </fieldset>
              </div>
                <!--  button & text chang -->
-               <div  class="flex-[0.3] flex justify-around  flex-col" >
-                <div class="flex-[0.6] flex justify-center" id="interpretaionbor">
-                  <div id="OutputedText" class=" flex-[0.995] flex flex-col  pl-6 text-yellow-500">Translated text will show here</div>
+               <div  class="flex-[0.3]  flex justify-around  flex-col" >
+                <div class="flex-[0.6] flex justify-between" id="interpretaionbor">
+                    <p id="copybtn" class="items-end flex">copy</p>
+                  <div id="OutputedText" class=" flex-[0.98] flex flex-col  text-yellow-500">Translated text will show here</div>
                   <div class="flex-[0.005] flex items-end" id="SoundParent">
-                  <div class="bg-[url('./img/speaker.png')]  bg-cover flex justify-items-end cursor-pointer bg-center h-6 w-6 mt-1" id="Soundspeaker" ></div>
+                  <div class="bg-[url('./img/speaker.png')]  bg-cover flex justify-items-end cursor-pointer bg-center h-5 w-5 mt-1" id="Soundspeaker"></div>
                   <!-- <img src="./img/speaker.png"  id="Soundspeaker" alt=""> -->
                   </div>
                 </div>
