@@ -26,15 +26,18 @@
                 </div>
                 <div class="flex justify-center items-center flex-row flex-[0.5]">
                     <div class="flex-[0.25] flex justify-center items-center">
-                        <div class="text-white" id="openFrom">from</div>
+                        <div class="text-white cursor-pointer" id="openFrom">from</div>
                         <!-- drop down for -->
-                        <div class="mt-16 w-8 h-8 hidden cursor-pointer absolute" id="closeFrom">
-                            <div class="h-8 w-8" id="sourceLang">
+                        <div class="mt-16 w-20 h-8 hidden cursor-pointer absolute" id="closeFrom">
+                            <div class="h-32 w-20" id="sourceLang">
                                 <div class="text-white" onclick="changeNameFrom('english')">english</div>
                                 <div class="text-white" onclick="changeNameFrom('french')">french</div>
                                 <div class="text-white" onclick="changeNameFrom('chinese')">chinese</div>
                                 <div class="text-white" onclick="changeNameFrom('spanish')">spanish</div>
                                 <div class="text-white" onclick="changeNameFrom('german')">german</div>
+                                <div class="text-white" onclick="changeNameFrom('igbo')">Igbo</div>
+                                <div class="text-white" onclick="changeNameFrom('yoruba')">yoruba</div>
+                                <div class="text-white" onclick="changeNameFrom('hausa')">hausa</div>
                             </div>
                         </div>
                 </div>
@@ -43,14 +46,17 @@
                         <div class="bg-[url('./img/icons8-arrow-24.png')] bg-cover bg-center h-8 w-8" id="confy-image"></div>
                     </div>
                     <div class="flex-[0.25] flex justify-center items-center"> 
-                        <div class="text-white" id="opento">to</div>
-                        <div class="mt-16 w-8 h-8 hidden cursor-pointer  absolute" id="closeTo">
-                            <div class="h-8 w-8" id="TargetLang">
+                        <div class="text-white cursor-pointer" id="opento">to</div>
+                        <div class="mt-16 w-20 h-8  cursor-pointer  hidden absolute" id="closeTo">
+                            <div class="h-32 w-20" id="TargetLang">
                                 <div class="text-white" onclick="changeNameTo('english')">english</div>
                                 <div class="text-white" onclick="changeNameTo('french')">french</div>
                                 <div class="text-white" onclick="changeNameTo('chinese')">chinese</div>
                                 <div class="text-white" onclick="changeNameTo('spanish')">spanish</div>
                                 <div class="text-white" onclick="changeNameTo('german')">german</div>
+                                <div class="text-white" onclick="changeNameTo('igbo')">Igbo</div>
+                                <div class="text-white" onclick="changeNameTo('yoruba')">yoruba</div>
+                                <div class="text-white" onclick="changeNameTo('hausa')">hausa</div>
                             </div>
                         </div>
                     </div>
@@ -71,7 +77,12 @@
                <!--  button & text chang -->
                <div  class="flex-[0.3]  flex justify-around  flex-col" >
                 <div class="flex-[0.6] flex justify-between" id="interpretaionbor">
-                    <p id="copybtn" class="items-end flex">copy</p>
+                    <!-- <p id="copybtn" class="items-end flex">copy</p> -->
+                    <div class="flex items-end">
+                        <div class="bg-[url('./img/icons8-copy-50.png')] bg-cover  cursor-pointer bg-center h-5 w-5 ml-1" id="copybtn"></div>
+                    </div>
+                  <!-- <img src="./img/icons8-copy-50.png" alt=""> -->
+
                   <div id="OutputedText" class=" flex-[0.98] flex flex-col  text-yellow-500">Translated text will show here</div>
                   <div class="flex-[0.005] flex items-end" id="SoundParent">
                   <div class="bg-[url('./img/speaker.png')]  bg-cover flex justify-items-end cursor-pointer bg-center h-5 w-5 mt-1" id="Soundspeaker"></div>

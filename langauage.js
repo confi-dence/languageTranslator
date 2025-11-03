@@ -93,7 +93,11 @@ function getLangCode(lang) {
     french: 'fr',
     spanish: 'es',
     german: 'de',
-    chinese: 'zh'
+    chinese: 'zh',
+    igbo: 'ig',
+    yoruba: 'yo',
+    hausa: 'ha',
+
   };
   return map[lang.toLowerCase()] || 'en'; // default to English
 }

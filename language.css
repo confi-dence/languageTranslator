@@ -30,7 +30,8 @@ fieldset{
   border-radius: 8px;
 }
 #interpretaionbor{
-  border: 2.5px solid #F59E0B;
+background: #4f5553a9;
+box-shadow: 10px 10px 10px 20px #cccccc46, ;
   border-radius: 6px;
 }
 #SoundParent>div,#SpeakInput{
@@ -81,13 +82,16 @@ textarea{
 }
 
 
-#OutputedText {
+#OutputedText,#TargetLang, #sourceLang {
   scrollbar-color:      #4f5553 #2e2e302d;
 }
 textarea {
   scrollbar-color:      #4f5553 #2e2e302d;
 }
-
+#TargetLang,#sourceLang{
+  overflow: hidden;
+  overflow-y: auto;
+}
 
 @media screen and (max-width: 800px) {
   textarea{
@@ -107,15 +111,14 @@ textarea {
   textarea{
     width: 32ch;
     height: 6.6em;
-    
   }
   #interpretaionbor{
     /* background: #000; */
     /* height: 5em; */
   }
-  #OutputedText{
-    /* height: 4.94em; */
-  }
+  /* #OutputedText{
+    height: 6.6em;
+  } */
   #content-container{
     width: 90%;
   }
