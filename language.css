@@ -140,6 +140,9 @@ textarea {
   textarea{
     width: 35ch;
   }
+  #interpretaionbor::after{
+    filter: blur(15px);
+    }
 
 }
 @media screen and (max-width: 400px) {
@@ -190,5 +193,7 @@ textarea {
     width: 30ch;
   }
 
-
+  #interpretaionbor::after{
+    filter: blur(10px);
+    }
 }
