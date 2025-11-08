@@ -21,6 +21,8 @@ copybtn = document.getElementById('copybtn')
 
 const apiUrl = "https://api.mymemory.translated.net/get";
 
+imageText = "url('./img/icons8-copy-50.png')"
+
 openFrom.addEventListener('click', function () {
     closeFrom.style.display = 'flex';
     usertype.style.display = 'none';
@@ -93,11 +95,10 @@ function getLangCode(lang) {
     french: 'fr',
     spanish: 'es',
     german: 'de',
-    chinese: 'zh',
-    igbo: 'ig',
+    chinese: 'zh', 
+    igbo : 'ig',
     yoruba: 'yo',
     hausa: 'ha',
-
   };
   return map[lang.toLowerCase()] || 'en'; // default to English
 }
@@ -225,6 +226,22 @@ recognition.onresult = (event) => {
 // copybtn
 
 
-copybtn.addEventListener('click', function (params) {
+copybtn.addEventListener('click', function () {
+  // Copy the text
   navigator.clipboard.writeText(OutputedText.innerText)
-})
+    .then(() => {
+      
+      const oldBg = copybtn.style.background;
+
+      copybtn.style.background = 'none';
+      copybtn.textContent = 'copied';
+
+      setTimeout(() => {
+        copybtn.textContent = '';
+        copybtn.style.background = oldBg;
+      }, 2000);
+    })
+    .catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+});

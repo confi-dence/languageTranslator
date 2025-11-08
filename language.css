@@ -29,9 +29,43 @@ fieldset{
   border: 2.5px solid #064E3B;
   border-radius: 8px;
 }
+#interpretaionbor::before,
+#interpretaionbor::after{
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background: linear-gradient(45deg, #f59f0be7,#ffffffe5,
+  #064e3be3, #f59f0be7,#ffffffe5,  #064e3be3, #f59f0be7,#ffffffe5, #064e3be3, #f59f0be7,#ffffffe5);
+  background-size: 400%;
+  border-radius: 6px;
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+  z-index: -1;
+  animation: animate 20s linear infinite;
+}
+@keyframes animate {
+  0%{
+    background-position: 0 0;
+  }
+  50%{
+    background-position: 300% 0;
+  }
+ 100%{
+    background-position: 0 0;
+  }
+
+}
+#interpretaionbor::after{
+filter: blur(20px);
+/* filter: drop-shadow(0px 0px 12px #cccccc); */
+
+}
 #interpretaionbor{
-background: #4f5553a9;
-box-shadow: 10px 10px 10px 20px #cccccc46, ;
+background: #3d3d3de3;
+/* box-shadow: 10px 10px 10px 20px #cccccc46; */
+/* filter: drop-shadow(0px 0px 12px #cccccc41); */
+position: relative;
   border-radius: 6px;
 }
 #SoundParent>div,#SpeakInput{
