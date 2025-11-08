@@ -28,6 +28,8 @@ body{
 fieldset{
   border: 2.5px solid #064E3B;
   border-radius: 8px;
+  position: relative;
+
 }
 #interpretaionbor::before,
 #interpretaionbor::after{
@@ -35,8 +37,9 @@ fieldset{
   position: absolute;
   top: -2px;
   left: -2px;
-  background: linear-gradient(45deg, #f59f0be7,#ffffffe5,
-  #064e3be3, #f59f0be7,#ffffffe5,  #064e3be3, #f59f0be7,#ffffffe5, #064e3be3, #f59f0be7,#ffffffe5);
+  background: linear-gradient(45deg, #fb00927e, #0000ff83, #00ff007e,#ffff0080,#ff000083,  #fb00927e, #0000ff83, #00ff007e,#ffff0080,#ff000083,  #fb00927e, #0000ff83, #00ff007e,#ffff0080,#ff000083);
+  /* background: linear-gradient(45deg, #eeeeee, #745b31,white,
+  #064E3B, #F59E0B,white,  #064E3B, #F59E0B,white, #064E3B, #F59E0B,white); */
   background-size: 400%;
   border-radius: 6px;
   height: calc(100% + 4px);
@@ -58,11 +61,9 @@ fieldset{
 }
 #interpretaionbor::after{
 filter: blur(20px);
-/* filter: drop-shadow(0px 0px 12px #cccccc); */
-
 }
 #interpretaionbor{
-background: #3d3d3d;
+background: #4f5553b6;
 /* box-shadow: 10px 10px 10px 20px #cccccc46; */
 /* filter: drop-shadow(0px 0px 12px #cccccc41); */
 position: relative;
