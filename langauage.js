@@ -235,10 +235,12 @@ copybtn.addEventListener('click', function () {
 
       copybtn.style.background = 'none';
       copybtn.textContent = 'copied';
-
+      
+      OutputedText.classList.add('OutputedOpacity')
       setTimeout(() => {
         copybtn.textContent = '';
         copybtn.style.background = oldBg;
+        OutputedText.classList.remove('OutputedOpacity')
       }, 2000);
     })
     .catch(err => {

@@ -20,11 +20,14 @@
         <div class="flex-[0.88] flex justify-center items-center">
            <div class="content flex flex-col w-96"  id="content-container">
              <!-- to and from-->
-             <div class="flex-[0.2]  flex flex-col">
-                <div class="flex-[0.5] flex justify-center items-center">
-                    <h5 class="text-xl text-yellow-500 OrTrans">Language Translator</h5>
+             <div class="flex-[0.23] flex flex-col">
+                <div class="flex-[0.7] flex justify-between items-end">
+                    <div>
+                        <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-10 w-10" id="phoneSpeaker"></div>
+                    </div>
+                    <!-- <h5 class="text-xl text-yellow-500 OrTrans">Language Translator</h5> -->
                 </div>
-                <div class="flex justify-center items-center flex-row flex-[0.5]">
+                <div class="flex justify-center items-center flex-row flex-[0.3]">
                     <div class="flex-[0.25] flex justify-center items-center">
                         <div class="text-white cursor-pointer" id="openFrom">from</div>
                         <!-- drop down for -->
@@ -64,7 +67,7 @@
              </div>
              <!-- text area -->
              <!-- type what they want ot ingterpret -->
-             <div  class="flex-[0.3]" >
+             <div  class="flex-[0.3] flex flex-col justify-center" >
                 <fieldset id="usertype" class="flex justify-between">
                     <legend class="text-white pl-2">Source text</legend>
                 <textarea name="source text" id="inputedText"  rows="4" cols="53" class="bg-transparent flex-[0.98] pl-2.5 text-white 
@@ -75,15 +78,15 @@
                 </fieldset>
              </div>
                <!--  button & text chang -->
-               <div  class="flex-[0.3]  flex justify-around  flex-col" >
-                <div class="flex-[0.6] flex justify-between" id="interpretaionbor">
+               <div  class="flex-[0.48]  flex flex-col" >
+                <div class=" flex justify-between" id="interpretaionbor">
                     <!-- <p id="copybtn" class="items-end flex">copy</p> -->
                     <div class="flex items-end">
                         <div class="bg-[url('./img/icons8-copy-50.png')] bg-cover  cursor-pointer bg-center text-yellow-500 h-5 w-5 ml-1" id="copybtn"></div>
                     </div>
-                  <!-- <img src="./img/icons8-copy-50.png" alt=""> -->
+                  <!-- <img src="./img /icons8-copy-50.png" alt=""> -->
 
-                  <div id="OutputedText" class=" flex-[0.98] flex flex-col  text-yellow-500">Translated text will show here</div>
+                  <div id="OutputedText" class=" flex-[0.98] flex flex-col  text-yellow-500">Translated text will show here  </div>
                   <div class="flex-[0.005] flex items-end" id="SoundParent">
                   <div class="bg-[url('./img/speaker.png')]  bg-cover flex justify-items-end cursor-pointer bg-center h-5 w-5 mt-1" id="Soundspeaker"></div>
                   <!-- <img src="./img/speaker.png"  id="Soundspeaker" alt=""> -->
@@ -92,7 +95,7 @@
   
                </div>
              <!-- Google image -->
-             <div  class="flex-[0.41] text-white  flex-col flex justify-around items-center">
+             <!-- <div  class="flex-[0.41] text-white  flex-col flex justify-around items-center">
                 <div class="text-xl OrTrans">OR</div>
                 <div>
                     <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-16 w-16" id="phoneSpeaker"></div>
@@ -100,7 +103,7 @@
                 <div class="saySomething">Say Something</div> 
              </div>
            
-           </div>
+           </div> -->
         </div>
     </div>
     
