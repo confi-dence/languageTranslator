@@ -16,7 +16,13 @@ SpeakInput = document.getElementById('SpeakInput'),
 triggerButton = document.getElementById('triggerButton'),
 clickFrom = TargetLang.querySelectorAll('div'),
 clickTo = sourceLang.querySelectorAll('div'),
-copybtn = document.getElementById('copybtn')
+copybtn = document.getElementById('copybtn'),
+behindCamera = document.getElementById('behindCamera'),
+cameraContainer = document.getElementById('cameraContainer'),
+camera = document.getElementById('camera'),
+trigger = document.getElementById('trigger'),
+camfeed = document.getElementById('camfeed')
+
 
 
 const apiUrl = "https://api.mymemory.translated.net/get";
@@ -247,3 +253,94 @@ copybtn.addEventListener('click', function () {
       console.error("Failed to copy: ", err);
     });
 });
+//  dealing with OCR camera
+camera.addEventListener('click',async () => {
+  if (behindCamera.style.display = "flex") {  
+    behindCamera.style.display = "none"
+    cameraContainer.style.display = "flex"
+  }
+  let worker = await Tesseract.createWorker('eng')
+  navigator.mediaDevices.getUserMedia({video : true}).then(
+    async(stream) => {
+      camfeed.srcObject = stream;
+      trigger.onclick = async () =>{
+        let canvas = document.createElement("canvas")
+        canvas.width = camfeed.videoWidth
+        canvas.Height = camfeed.videoHeight
+
+        canvas.getContext("2d").drawImage(
+          camfeed, 0, 0, camfeed.videoWidth , camfeed.videoHeight
+        )
+        let img = canvas.toDataURL("image/png")
+        let res = await worker.recognize(img)
+    
+        inputedText.value = res.data.text;
+        navigator.clipboard.writeText(res.data.text)
+      }
+    }
+  ).catch(err =>console.error(err))
+})
+
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    const stream = camfeed.srcObject;
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      camfeed.srcObject = null;
+    }
+    camfeed.style.display = "none";
+  } 
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    const stream = camfeed.srcObject;
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      camfeed.srcObject = null;
+    }
+    camfeed.style.display = "none";
+  } 
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    const stream = camfeed.srcObject;
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      camfeed.srcObject = null;
+    }
+    // camfeed.style.display = "none";
+  } else {
+    // Restart camera when user returns
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        camfeed.srcObject = stream;
+        camfeed.style.display = "block";
+      })
+      .catch(err => console.error(err));
+  }
+});
+
+
+trigger.addEventListener('click', function (params) {
+  behindCamera.style.display = "flex"
+  cameraContainer.style.display = "none"
+  if ( behindCamera.style.display = "flex") {
+    const stream = camfeed.srcObject;
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      camfeed.srcObject = null;
+    }
+    // camfeed.style.display = "none";
+  } else {
+    // Restart camera when user returns
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        camfeed.srcObject = stream;
+        camfeed.style.display = "block";
+      })
+      .catch(err => console.error(err));
+  }
+})

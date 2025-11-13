@@ -6,6 +6,7 @@
     <title>Language translator</title>
     <link rel="stylesheet" href="language.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 
 </head>
 <body class="box-border  flex w-full h-screen justify-center  items-center p-0 m-0 italic font-medium">
@@ -18,18 +19,29 @@
         </div>
         <!-- sub main -->
         <div class="flex-[0.88] flex justify-center items-center">
-           <div class="content flex flex-col w-96"  id="content-container">
-             <!-- to and from-->
+           <div class="content flex flex-col w-96  "  id="content-container">
+             <div class=" flex-[1] flex flex-col" id="behindCamera">
+                <!-- to and from-->
              <div class="flex-[0.23] flex flex-col">
                 <div class="flex-[0.7] flex justify-between items-end">
                     <div>
-                        <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-10 w-10" id="phoneSpeaker"></div>
+                        <!-- <img src="./img/microphone.png" alt=""> -->
+                        <div class="bg-[url('./img/microphone.png')] bg-cover cursor-pointer bg-center h-10 w-10" id="phoneSpeaker"></div>
+                    </div>
+                    <div>
+                        <!-- <img src="./img/camera.png" alt=""> -->
+                        <div class="bg-[url('./img/camera.png')] bg-cover cursor-pointer bg-center h-10 w-10" id="camera"></div>
                     </div>
                     <!-- <h5 class="text-xl text-yellow-500 OrTrans">Language Translator</h5> -->
                 </div>
                 <div class="flex justify-center items-center flex-row flex-[0.3]">
                     <div class="flex-[0.25] flex justify-center items-center">
-                        <div class="text-white cursor-pointer" id="openFrom">from</div>
+                        <div class="text-white cursor-pointer flex" >
+                            <p id="openFrom">from</p>
+                            <div  class="flex items-end cursor-default" >
+                                <div class="bg-[url('./img/dropdown.png')] bg-cover bg-center h-3.5 w-3.5" id="dropdown"></div>
+                            </div>
+                        </div>
                         <!-- drop down for -->
                         <div class="mt-16 w-20 h-8 hidden cursor-pointer absolute" id="closeFrom">
                             <div class="h-32 w-20" id="sourceLang">
@@ -49,7 +61,13 @@
                         <div class="bg-[url('./img/icons8-arrow-24.png')] bg-cover bg-center h-8 w-8" id="confy-image"></div>
                     </div>
                     <div class="flex-[0.25] flex justify-center items-center"> 
-                        <div class="text-white cursor-pointer" id="opento">to</div>
+                        <div class="text-white cursor-pointer flex">
+                            <p  id="opento">to</p>
+                            <div  class="flex items-end cursor-default" >
+                                <div class="bg-[url('./img/dropdown.png')] bg-cover bg-center h-3.5 w-3.5" id="dropdown"></div>
+                            </div>
+                            <!-- <img src="./img/dropdown.png" alt=""> -->
+                        </div>
                         <div class="mt-16 w-20 h-8  cursor-pointer  hidden absolute" id="closeTo">
                             <div class="h-32 w-20" id="TargetLang">
                                 <div class="text-white" onclick="changeNameTo('english')">english</div>
@@ -75,6 +93,7 @@
                 <div class="flex  flex-[0.005] justify-center items-end">
                 <div class="bg-[url('./img/speaker.png')]  bg-cover flex  cursor-pointer bg-center h-5 w-5 mt-1" id="SpeakInput"></div>
                 </div>
+                
                 </fieldset>
              </div>
                <!--  button & text chang -->
@@ -94,16 +113,14 @@
                 </div>
   
                </div>
-             <!-- Google image -->
-             <!-- <div  class="flex-[0.41] text-white  flex-col flex justify-around items-center">
-                <div class="text-xl OrTrans">OR</div>
-                <div>
-                    <div class="bg-[url('./img/icons8-voice-recorder-48.png')] bg-cover cursor-pointer bg-center h-16 w-16" id="phoneSpeaker"></div>
-                </div>
-                <div class="saySomething">Say Something</div> 
+
+               <!-- Google image -->
              </div>
-           
-           </div> -->
+          
+               <div class="flex-[1] flex-col hidden flex text-white" id="cameraContainer">
+                <video autoplay class="flex-[0.9]" id="camfeed"></video>
+                 <button id="trigger" class="flex-[0.1] text-xl bg-green-900">Click</button>
+               </div>
         </div>
     </div>
     

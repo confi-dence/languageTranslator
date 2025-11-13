@@ -7,6 +7,7 @@
 
 body{
   background: #DADDDF;
+  font-family: cursive;
 }
 #main{
   width: 90%;
@@ -31,6 +32,7 @@ fieldset{
   position: relative;
 
 }
+
 #interpretaionbor::before,
 #interpretaionbor::after{
   content: '';
@@ -75,9 +77,9 @@ position: relative;
   margin-bottom: 5px;
   left: -4px;
 }
-#copybtn, #phoneSpeaker{
+#copybtn, #phoneSpeaker,#dropdown{
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 3.5px; 
 }
 /* #SpeakInput{
   align-self: flex-end;
@@ -134,7 +136,9 @@ textarea {
   overflow: hidden;
   overflow-y: auto;
 }
-
+#trigger{
+  border-radius: 8px;
+}
 @media screen and (max-width: 800px) {
   textarea{
     width: 35ch;
