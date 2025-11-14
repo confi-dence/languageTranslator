@@ -260,7 +260,8 @@ camera.addEventListener('click',async () => {
     cameraContainer.style.display = "flex"
   }
   let worker = await Tesseract.createWorker('eng')
-  navigator.mediaDevices.getUserMedia({video : true}).then(
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }
+  ).then(
     async(stream) => {
       camfeed.srcObject = stream;
       trigger.onclick = async () =>{
