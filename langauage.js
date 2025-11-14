@@ -255,18 +255,17 @@ copybtn.addEventListener('click', function () {
 });
 //  dealing with OCR camera
 camera.addEventListener('click',async () => {
-  if (behindCamera.style.display == "flex") {  
+ 
     behindCamera.style.display = "none"
     cameraContainer.style.display = "flex"
-  }
   let worker = await Tesseract.createWorker('eng')
-  navigator.mediaDevices.getUserMedia({video: { facingMode: "environment" }}).then(
+  navigator.mediaDevices.getUserMedia({    video: { facingMode: "environment" }}).then(
     async(stream) => {
       camfeed.srcObject = stream;
       trigger.onclick = async () =>{
         let canvas = document.createElement("canvas")
         canvas.width = camfeed.videoWidth
-        canvas.height = camfeed.videoHeight
+        canvas.heightt = camfeed.videoHeight
 
         canvas.getContext("2d").drawImage(
           camfeed, 0, 0, camfeed.videoWidth , camfeed.videoHeight
@@ -276,15 +275,6 @@ camera.addEventListener('click',async () => {
     
         inputedText.value = res.data.text;
         navigator.clipboard.writeText(res.data.text)
-          behindCamera.style.display = "flex"
-  cameraContainer.style.display = "none"
-
-  
-  const s = camfeed.srcObject;
-  if (s) {
-    s.getTracks().forEach(t => t.stop());
-    camfeed.srcObject = null;
-  }
       }
     }
   ).catch(err =>console.error(err))
@@ -301,7 +291,7 @@ document.addEventListener('visibilitychange', () => {
     // camfeed.style.display = "none";
   } else {
     // Restart camera when user returns
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({     video: { facingMode: "environment" }})
       .then(stream => {
         camfeed.srcObject = stream;
         camfeed.style.display = "block";
@@ -312,8 +302,8 @@ document.addEventListener('visibilitychange', () => {
 
 
 // trigger.addEventListener('click', function (params) {
-  // behindCamera.style.display = "flex"
-  // cameraContainer.style.display = "none"
+//   behindCamera.style.display = "flex"
+//   cameraContainer.style.display = "none"
 //   if ( behindCamera.style.display = "flex") {
 //     const stream = camfeed.srcObject;
 //     if (stream) {
