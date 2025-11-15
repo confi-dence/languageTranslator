@@ -254,12 +254,40 @@ copybtn.addEventListener('click', function () {
     });
 });
 //  dealing with OCR camera
+// function getLangCode(lang) {
+//   const map = {
+//     english: 'en',
+//     french: 'fr',
+//     spanish: 'es',
+//     german: 'de',
+//     chinese: 'zh', 
+//     igbo : 'ig',
+//     yoruba: 'yo',
+//     hausa: 'ha',
+//   };
+//   return map[lang.toLowerCase()] || 'en'; // default to English
+// }
+
+
+function OCRLang(lang) {
+  const OCRmap = {
+    english: 'eng',
+    french: 'fra',
+    spanish: 'spa',
+    german: 'deu',
+    chinese: 'chi_sim', 
+    igbo : 'ig',
+    yoruba: 'yo',
+    hausa: 'ha',
+  };
+  return OCRmap[lang.toLowerCase()] || 'eng'
+}
 camera.addEventListener('click',async () => {
  
     behindCamera.style.display = "none"
-    cameraContainer.style.display = "flex"
-  let worker = await Tesseract.createWorker('eng')
-  navigator.mediaDevices.getUserMedia({    video: { facingMode: "environment" }}).then(
+    cameraContainer.style.display = "flex"    
+  let worker = await Tesseract.createWorker(OCRLang(openFrom.innerText))
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }}).then(
     async(stream) => {
       camfeed.srcObject = stream;
       trigger.onclick = async () =>{
@@ -275,7 +303,7 @@ camera.addEventListener('click',async () => {
     
         inputedText.value = res.data.text;
         navigator.clipboard.writeText(res.data.text)
-        
+
         behindCamera.style.display = "flex"
 cameraContainer.style.display = "none"
         const s = camfeed.srcObject;
