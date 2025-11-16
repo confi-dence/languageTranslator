@@ -280,7 +280,7 @@ camera.addEventListener('click',async () => {
         cameraContainer.style.display = "none"
         const s = camfeed.srcObject;
         if (s) {
-        trigger.innerText = "loading..."
+        trigger.innerText = "Click"
           s.getTracks().forEach(t => t.stop());
           camfeed.srcObject = null;
         }
