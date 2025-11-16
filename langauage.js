@@ -244,7 +244,9 @@ function OCRLang(lang) {
     spanish: 'spa',
     german: 'deu',
     chinese: 'chi_sim', 
-  
+    igbo : 'ig',
+    yoruba: 'yo',
+    hausa: 'ha',      
   };
   return OCRmap[lang.toLowerCase()] || 'eng'
 }
