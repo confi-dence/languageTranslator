@@ -167,20 +167,6 @@ return response.json()
 }, 1000);
 })  
 
-
-
-// Soundspeaker.addEventListener('click', function () {
-//   if (lastTranslation) {
-//     const targetLang = getLangCode(opento.innerText);
-//     speakText(lastTranslation, targetLang);
-//   } else {
-//     OutputedText.innerText = "translate First";
-//     setTimeout(() => {
-//       OutputedText.innerText = "";
-//     }, 1500);
-//   } 
-// });
-
 function speakTextOutput() {
   let talk;
   talk = new SpeechSynthesisUtterance(OutputedText.innerText)
@@ -196,18 +182,6 @@ function speakTextInPut() {
   speechSynthesis.speak(tallIn)
 }
 SpeakInput.addEventListener('click', speakTextInPut)
-// Soundspeaker.addEventListener('click', function () {
-//   if (lastTranslation) {
-//     const targetLang = getLangCode(opento.innerText);
-//     speakText(lastTranslation, targetLang);
-//   } else {
-//     OutputedText.innerText = "translate First";
-//     setTimeout(() => {
-//       OutputedText.innerText = "";
-//     }, 1500);
-//   } 
-// });
-
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -215,9 +189,16 @@ const recognition = new SpeechRecognition();
 recognition.interimResults = true; // type while speaking
 
 phoneSpeaker.addEventListener('click', () => {
-  recognition.lang = getLangCode(openFrom.innerText) + '-' + getLangCode(openFrom.innerText).toUpperCase();
+if(openFrom.innerText === "from" || opento.innerText === "to"){
+  OutputedText.innerText = "please select one language"
+  setTimeout(() => {
+    OutputedText.innerText = ""
+  }, 3000);  
+}else{
+    recognition.lang = getLangCode(openFrom.innerText) + '-' + getLangCode(openFrom.innerText).toUpperCase();
   recognition.start();
   // inputedText.value = "listening....";
+}
 });
  
 // As the person speaks, text appears in the textarea
@@ -253,21 +234,8 @@ copybtn.addEventListener('click', function () {
       console.error("Failed to copy: ", err);
     });
 });
-//  dealing with OCR camera
-// function getLangCode(lang) {
-//   const map = {
-//     english: 'en',
-//     french: 'fr',
-//     spanish: 'es',
-//     german: 'de',
-//     chinese: 'zh', 
-//     igbo : 'ig',
-//     yoruba: 'yo',
-//     hausa: 'ha',
-//   };
-//   return map[lang.toLowerCase()] || 'en'; // default to English
-// }
 
+//  dealing with OCR camera
 
 function OCRLang(lang) {
   const OCRmap = {
@@ -276,15 +244,19 @@ function OCRLang(lang) {
     spanish: 'spa',
     german: 'deu',
     chinese: 'chi_sim', 
-    igbo : 'ig',
-    yoruba: 'yo',
-    hausa: 'ha',
+  
   };
   return OCRmap[lang.toLowerCase()] || 'eng'
 }
 camera.addEventListener('click',async () => {
  
-    behindCamera.style.display = "none"
+   if(openFrom.innerText === "from" || opento.innerText === "to"){
+    OutputedText.innerText = "please select one language"
+    setTimeout(() => {
+      OutputedText.innerText = ""
+    }, 3000);
+   }else{
+     behindCamera.style.display = "none"
     cameraContainer.style.display = "flex"    
   let worker = await Tesseract.createWorker(OCRLang(openFrom.innerText))
   navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }}).then(
@@ -295,6 +267,7 @@ camera.addEventListener('click',async () => {
         canvas.width = camfeed.videoWidth
         canvas.height = camfeed.videoHeight
 
+        trigger.innerText = "loading..."
         canvas.getContext("2d").drawImage(
           camfeed, 0, 0, camfeed.videoWidth , camfeed.videoHeight
         )
@@ -303,17 +276,18 @@ camera.addEventListener('click',async () => {
     
         inputedText.value = res.data.text;
         navigator.clipboard.writeText(res.data.text)
-
         behindCamera.style.display = "flex"
-cameraContainer.style.display = "none"
+        cameraContainer.style.display = "none"
         const s = camfeed.srcObject;
         if (s) {
+        trigger.innerText = "loading..."
           s.getTracks().forEach(t => t.stop());
           camfeed.srcObject = null;
         }
       }
     }
   ).catch(err =>console.error(err))
+   }
 })
 
 
@@ -325,7 +299,7 @@ document.addEventListener('visibilitychange', () => {
       camfeed.srcObject = null;
     }
     // camfeed.style.display = "none";
-  } else {
+  } else if(cameraContainer.style.display === "flex") {
     // Restart camera when user returns
     navigator.mediaDevices.getUserMedia({   video: { facingMode: "environment" }})
       .then(stream => {
@@ -335,25 +309,3 @@ document.addEventListener('visibilitychange', () => {
       .catch(err => console.error(err));
   }
 });
-
-
-// trigger.addEventListener('click', function (params) {
-  // behindCamera.style.display = "flex"
-  // cameraContainer.style.display = "none"
-//   if ( behindCamera.style.display = "flex") {
-//     const stream = camfeed.srcObject;
-//     if (stream) {
-//       stream.getTracks().forEach(track => track.stop());
-//       camfeed.srcObject = null;
-//     }
-//     // camfeed.style.display = "none";
-//   } else {
-//     // Restart camera when user returns
-//     navigator.mediaDevices.getUserMedia({ video: true })
-//       .then(stream => {
-//         camfeed.srcObject = stream;
-//         camfeed.style.display = "block";
-//       })
-//       .catch(err => console.error(err));
-//   }
-// })
