@@ -7,7 +7,7 @@
 
 body{
   background: #DADDDF;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
 }
 #main{
@@ -159,7 +159,7 @@ textarea {
 }
 @media screen and (max-width: 400px) {
   textarea{
-    width: 32ch;
+    width: 29ch;
     height: 6.6em;
   }
   #interpretaionbor{
@@ -205,7 +205,7 @@ textarea {
 @media screen and (max-width: 350px) {
 
   textarea{
-    width: 30ch;
+    width: 27ch;
   }
 
   #interpretaionbor::after{
