@@ -175,16 +175,8 @@ return response.json()
 // }
 // SpeakOutput.addEventListener('click', speakTextOutput)
 
-function speakTextInPut() {
-  let tallIn;
-  tallIn = new SpeechSynthesisUtterance(inputedText.value)
-  tallIn.lang = getLangCode(openFrom.innerText)[1],
-  speechSynthesis.speak(tallIn)
-}
-SpeakInput.addEventListener('click', speakTextInPut)
 
-
-function speakText(text, lang = 'en') {
+function speakTextOutput(text, lang = 'en') {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
   speechSynthesis.speak(utterance);
@@ -192,10 +184,23 @@ function speakText(text, lang = 'en') {
 
 SpeakOutput.addEventListener('click', function () {
   if (lastTranslation) {
-    const targetLang = getLangCode(opento.innerText);
-    speakText(lastTranslation, targetLang);
+    const targetLang = getLangCode(opento.innerText)[0];
+    speakTextOutput(lastTranslation, targetLang);
   } 
 });
+
+    function speakTextInPut(textIn, langin = 'en') {
+      const utteranceIn = new SpeechSynthesisUtterance(textIn);
+      utteranceIn.lang = langin;
+      speechSynthesis.speak(utteranceIn);
+    }
+    SpeakInput.addEventListener('click', function () {
+      if (lastTranslation) {
+        const targetLangIN = getLangCode(opento.innerText)[1];
+        speakTextInPut(lastTranslation, targetLangIN);
+      }
+    })
+    
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
