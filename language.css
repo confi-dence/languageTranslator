@@ -177,12 +177,12 @@ textarea {
   }
 
   .OrTrans,#triggerButton,#OutputedText {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
 
   }
   #openFrom,#closeFrom,#opento,#closeTo, #inputedText{
-    font-size: 17px;
+    font-size: 16px;
     font-weight: bold;
   }
 
