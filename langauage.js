@@ -175,6 +175,14 @@ return response.json()
 // }
 // SpeakOutput.addEventListener('click', speakTextOutput)
 
+function speakTextInPut() {
+  let tallIn;
+  tallIn = new SpeechSynthesisUtterance(inputedText.value)
+  tallIn.lang = getLangCode(openFrom.innerText)[1],
+  speechSynthesis.speak(tallIn)
+}
+SpeakInput.addEventListener('click', speakTextInPut)
+
 
 function speakTextOutput(text, lang = 'en') {
   const utterance = new SpeechSynthesisUtterance(text);
@@ -184,18 +192,10 @@ function speakTextOutput(text, lang = 'en') {
 
 SpeakOutput.addEventListener('click', function () {
   if (lastTranslation) {
-    const targetLang = getLangCode(opento.innerText);
+    const targetLang = getLangCode(opento.innerText)[0];
     speakTextOutput(lastTranslation, targetLang);
   } 
 });
-    function speakTextInPut() {
-      let tallIn;
-      tallIn = new SpeechSynthesisUtterance(inputedText.value)
-      tallIn.lang = getLangCode(openFrom.innerText)[0],
-      speechSynthesis.speak(tallIn)
-    }
-    SpeakInput.addEventListener('click', speakTextInPut)
-    
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
