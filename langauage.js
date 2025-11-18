@@ -192,7 +192,7 @@ function speakTextOutput(text, lang = 'en') {
 
 SpeakOutput.addEventListener('click', function () {
   if (lastTranslation) {
-    const targetLang = getLangCode(opento.innerText)[0];
+    const targetLang = getLangCode(opento.innerText);
     speakTextOutput(lastTranslation, targetLang);
   } 
 });
