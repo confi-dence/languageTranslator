@@ -167,13 +167,13 @@ return response.json()
 }, 1000);
 })  
 
-function speakTextOutput() {
-  let talk;
-  talk = new SpeechSynthesisUtterance(OutputedText.innerText)
-  talk.lang = getLangCode(opento.innerText)[0],
-  speechSynthesis.speak(talk)
-}
-SpeakOutput.addEventListener('click', speakTextOutput)
+// function speakTextOutput() {
+//   let talk;
+//   talk = new SpeechSynthesisUtterance(OutputedText.innerText)
+//   talk.lang = getLangCode(opento.innerText)[0],
+//   speechSynthesis.speak(talk)
+// }
+// SpeakOutput.addEventListener('click', speakTextOutput)
 
 function speakTextInPut() {
   let tallIn;
@@ -182,6 +182,20 @@ function speakTextInPut() {
   speechSynthesis.speak(tallIn)
 }
 SpeakInput.addEventListener('click', speakTextInPut)
+
+
+function speakText(text, lang = 'en') {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  speechSynthesis.speak(utterance);
+}
+
+SpeakOutput.addEventListener('click', function () {
+  if (lastTranslation) {
+    const targetLang = getLangCode(opento.innerText);
+    speakText(lastTranslation, targetLang);
+  } 
+});
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
