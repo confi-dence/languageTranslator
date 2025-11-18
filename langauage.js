@@ -177,26 +177,26 @@ return response.json()
 
 
 function speakTextOutput(text, lang = 'en') {
-  const utterance = new SpeechSynthesisUtterance(text);
+  const utterance = new SpeechSynthesisUtterance(OutputedText.innerText);
   utterance.lang = lang;
   speechSynthesis.speak(utterance);
 }
 
 SpeakOutput.addEventListener('click', function () {
   if (lastTranslation) {
-    const targetLang = getLangCode(opento.innerText);
+    const targetLang = getLangCode(opento.innerText)[0];
     speakTextOutput(lastTranslation, targetLang);
   } 
 });
 
     function speakTextInPut(textIn, langin = 'en') {
-      const utteranceIn = new SpeechSynthesisUtterance(textIn);
+      const utteranceIn = new SpeechSynthesisUtterance(inputedText.innerText);
       utteranceIn.lang = langin;
       speechSynthesis.speak(utteranceIn);
     }
     SpeakInput.addEventListener('click', function () {
       if (lastTranslation) {
-        const targetLangIN = getLangCode(opento.innerText);
+        const targetLangIN = getLangCode(opento.innerText)[1];
         speakTextInPut(lastTranslation, targetLangIN);
       }
     })
