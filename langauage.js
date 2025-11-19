@@ -188,13 +188,13 @@ SpeakOutput.addEventListener('click', function () {
   } 
 });
 
-// function speakTextInPut() {
-//   let tallIn;
-//   tallIn = new SpeechSynthesisUtterance(inputedText.value)
-//   tallIn.lang = getLangCode(openFrom.innerText),
-//   speechSynthesis.speak(tallIn)
-// }
-// SpeakInput.addEventListener('click', speakTextInPut)
+function speakTextInPut() {
+  let tallIn;
+  tallIn = new SpeechSynthesisUtterance(inputedText.value)
+  tallIn.lang = getLangCode(opento.innerText),
+  speechSynthesis.speak(tallIn)
+}
+SpeakInput.addEventListener('click', speakTextInPut)
 
 // function speakTextInPut(text, lang = 'en') {
 //   const utteranceout = new SpeechSynthesisUtterance(text);
