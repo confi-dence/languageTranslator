@@ -78,7 +78,7 @@ position: relative;
   margin-bottom: 5px;
   left: -4px;
 }
-#copybtn, #phoneSpeaker,#dropdown{
+.copybtn, #phoneSpeaker,#dropdown{
   position: relative;
   margin-bottom: 3.5px; 
 }

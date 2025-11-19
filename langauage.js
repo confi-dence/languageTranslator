@@ -16,7 +16,8 @@ SpeakInput = document.getElementById('SpeakInput'),
 triggerButton = document.getElementById('triggerButton'),
 clickFrom = TargetLang.querySelectorAll('div'),
 clickTo = sourceLang.querySelectorAll('div'),
-copybtn = document.getElementById('copybtn'),
+copybtn1 = document.getElementById('copybtn-1'),
+copybtn2 = document.getElementById('copybtn-2'),
 behindCamera = document.getElementById('behindCamera'),
 cameraContainer = document.getElementById('cameraContainer'),
 camera = document.getElementById('camera'),
@@ -188,13 +189,13 @@ SpeakOutput.addEventListener('click', function () {
   } 
 });
 
-function speakTextInPut() {
-  let tallIn;
-  tallIn = new SpeechSynthesisUtterance(inputedText.value)
-  tallIn.lang = getLangCode(opento.innerText)[0],
-  speechSynthesis.speak(tallIn)
-}
-SpeakInput.addEventListener('click', speakTextInPut)
+// function speakTextInPut() {
+//   let tallIn;
+//   tallIn = new SpeechSynthesisUtterance(inputedText.value)
+//   tallIn.lang = getLangCode(opento.innerText)[0],
+//   speechSynthesis.speak(tallIn)
+// }
+// SpeakInput.addEventListener('click', speakTextInPut)
 
 // function speakTextInPut(text, lang = 'en') {
 //   const utteranceout = new SpeechSynthesisUtterance(text);
@@ -239,21 +240,42 @@ recognition.onresult = (event) => {
 // copybtn
 
 
-copybtn.addEventListener('click', function () {
+copybtn2.addEventListener('click', function () {
   // Copy the text
   navigator.clipboard.writeText(OutputedText.innerText)
     .then(() => {
       
-      const oldBg = copybtn.style.background;
+      const oldBg = copybtn2.style.background;
 
-      copybtn.style.background = 'none';
-      copybtn.textContent = 'copied';
+      copybtn2.style.background = 'none';
+      copybtn2.textContent = 'copied';
       
       OutputedText.classList.add('OutputedOpacity')
       setTimeout(() => {
-        copybtn.textContent = '';
-        copybtn.style.background = oldBg;
+        copybtn2.textContent = '';
+        copybtn2.style.background = oldBg;
         OutputedText.classList.remove('OutputedOpacity')
+      }, 2000);
+    })
+    .catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+});
+copybtn1.addEventListener('click', function () {
+  // Copy the text
+  navigator.clipboard.writeText(inputedText.value)
+    .then(() => {
+      
+      const oldBg1 = copybtn1.style.background;
+
+      copybtn1.style.background = 'none';
+      copybtn1.textContent = 'copied';
+      
+      inputedText.classList.add('OutputedOpacity')
+      setTimeout(() => {
+        copybtn1.textContent = '';
+        copybtn1.style.background = oldBg1;
+        inputedText.classList.remove('OutputedOpacity')
       }, 2000);
     })
     .catch(err => {
