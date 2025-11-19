@@ -167,13 +167,26 @@ return response.json()
 }, 1000);
 })  
 
-function speakTextOutput() {
-  let talk;
-  talk = new SpeechSynthesisUtterance(OutputedText.innerText)
-  talk.lang = getLangCode(opento.innerText)[0],
-  speechSynthesis.speak(talk)
+// function speakTextOutput() {
+//   let talk;
+//   talk = new SpeechSynthesisUtterance(OutputedText.innerText)
+//   talk.lang = getLangCode(opento.innerText)[0],
+//   speechSynthesis.speak(talk)
+// }
+// SpeakOutput.addEventListener('click', speakTextOutput)
+
+function speakTextOutput(text, lang = 'en') {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  speechSynthesis.speak(utterance);
 }
-SpeakOutput.addEventListener('click', speakTextOutput)
+
+SpeakOutput.addEventListener('click', function () {
+  if (lastTranslation) {
+    const targetLang = getLangCode(opento.innerText);
+    speakTextOutput(lastTranslation, targetLang);
+  } 
+});
 
 function speakTextInPut() {
   let tallIn;
@@ -182,6 +195,19 @@ function speakTextInPut() {
   speechSynthesis.speak(tallIn)
 }
 SpeakInput.addEventListener('click', speakTextInPut)
+
+// function speakTextInPut(text, lang = 'en') {
+//   const utteranceout = new SpeechSynthesisUtterance(text);
+//   utteranceout.lang = lang;
+//   speechSynthesis.speak(utteranceout);
+// }
+
+// SpeakInput.addEventListener('click', function () {
+//   if (lastTranslation) {
+//     const targetLang = getLangCode(opento.innerText);
+//     speakTextInPut(lastTranslation, targetLang);
+//   } 
+// });
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
