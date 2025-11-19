@@ -191,7 +191,7 @@ SpeakOutput.addEventListener('click', function () {
 function speakTextInPut() {
   let tallIn;
   tallIn = new SpeechSynthesisUtterance(inputedText.value)
-  tallIn.lang = getLangCode(opento.innerText),
+  tallIn.lang = getLangCode(opento.innerText)[0],
   speechSynthesis.speak(tallIn)
 }
 SpeakInput.addEventListener('click', speakTextInPut)
